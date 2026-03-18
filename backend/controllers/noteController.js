@@ -50,6 +50,8 @@ exports.getNoteById = (req, res) => {
     });
   }
 
+  console.log(`Note returned: ${notes[index].id} - ${notes[index].title}`);
+
   res.status(200).json({
     success: true,
     note: notes[index],
@@ -89,6 +91,8 @@ exports.updateNote = (req, res) => {
     notes[index].updatedAt = new Date().toISOString();
   }
 
+  console.log(`Note updated: ${notes[index].id} - ${notes[index].title}`);
+
   res.status(200).json({
     success: true,
     note: notes[index],
@@ -106,6 +110,8 @@ exports.deleteNote = (req, res) => {
   }
 
   const deleted = notes.splice(index, 1);
+
+  console.log(`Note deleted: ${deleted[0].id} - ${deleted[0].title}`);
 
   res.status(200).json({
     success: true,
